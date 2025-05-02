@@ -1,8 +1,8 @@
 ﻿using Application.Contracts;
 using Application.Dtos.Request;
 using Domain.Contracts;
+using Domain.Enums;
 using Domain.Factories;
-using Microsoft.EntityFrameworkCore;
 
 namespace Application.Services
 {
@@ -54,7 +54,24 @@ namespace Application.Services
             var usuario = await _contaRepository.ObterUsuarioPorId(input.UsuarioId);
 
             var conta = _contaFactory.CriarConta(input.TipoDeConta, usuario);
+
+            if(input.TipoDeConta == TipoDeConta.Parcelada)
+            {
+                if(input.Parcelas < 2)
+                {
+                    throw new Exception("Quantidade de parcelas não pode ser menor que 2.");
+                }
+            } else if(input.TipoDeConta == TipoDeConta.Variavel ||  input.TipoDeConta == TipoDeConta.Fixa)
+            {
+                if(input.Parcelas >= 2)
+                {
+                    throw new Exception("Tipo de conta Variável e Fixa não devem ter mais de uma parcela.");
+                }
+            }
+
+            conta.Nome = input.Nome.ToLower();
             conta.Valor = input.Valor;
+            conta.Parcelas = input.Parcelas;
             conta.DataLancamento = DateTime.Now;
             conta.Status = input.Status;
 

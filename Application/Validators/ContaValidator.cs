@@ -9,7 +9,9 @@ namespace Application.Validators
         {
             RuleFor(e => e.Nome).NotEmpty().WithMessage("Campo Descrição não pode estar em branco.");
             RuleFor(e => e.Valor).NotEmpty().WithMessage("Campo Descrição não pode estar em branco.");
-            RuleFor(e => e.TipoDeConta).NotEmpty().WithMessage("Campo Descrição não pode estar em branco.");
+            RuleFor(e => e.TipoDeConta).IsInEnum();
+    
+
         }
     }
 }
