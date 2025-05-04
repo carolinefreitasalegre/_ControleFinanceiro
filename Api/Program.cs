@@ -31,6 +31,9 @@ builder.Services.AddScoped<IContaRepository, ContaRepository>();
 builder.Services.AddTransient<IValidator<ContaInput>, ContaValidator>();
 builder.Services.AddTransient<IValidator<ContaEdicaoInput>, ContaEdicaoValidator>();
 
+builder.Services.AddScoped<IExcelExportService, ExcelExportService>();
+
+
 builder.Services.AddScoped<IJwtService, JwtService>();
 
 
