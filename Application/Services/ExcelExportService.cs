@@ -69,6 +69,12 @@ namespace Application.Services
                     linha++;
                 }
 
+
+                worksheet.Protection.IsProtected = true;
+                worksheet.Protection.SetPassword("NãoPoderáSerEditado!!!");
+
+             
+
                 worksheet.Cells.AutoFitColumns();
 
                 return package.GetAsByteArray();

@@ -76,8 +76,6 @@ builder.Services.AddAuthentication(opt =>
 });
 
 
-
-
 /* Autenticação no Swagger */
 
 

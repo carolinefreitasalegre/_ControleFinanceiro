@@ -11,7 +11,6 @@ namespace Application.Dtos.RelatorioResponse
         public TipoDeConta TipoDeConta { get; set; }
         public DateTime DataLancamento { get; set; } = DateTime.Now;
         public Status Status { get; set; }
-        //public Usuario Usuario { get; set; }
         public string Usuario { get; set; } = string.Empty;
 
     }
