@@ -1,4 +1,4 @@
-# ConroleFinanceiro
+# ControleFinanceiro
 
 Este repositório contém um projeto de controle financeiro desenvolvido para fins de estudo e prática.  
 O objetivo é ajudar a fixar conteúdos relacionados a backend, organização de dados, lógica de cálculo e registro de transações.
